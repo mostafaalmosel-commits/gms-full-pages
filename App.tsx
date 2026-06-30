@@ -78,6 +78,7 @@ const IncubationInvestorsPage = lazy(() => import('./components/pages/incubation
 const IncubationInsightsDashboard = lazy(() => import('./components/pages/incubation/IncubationInsightsDashboard'));
 const IncubationSuccessMetricsPage = lazy(() => import('./components/pages/incubation/IncubationSuccessMetricsPage'));
 const CommunityForumPage = lazy(() => import('./components/pages/CommunityForumPage'));
+const WelcomePage = lazy(() => import('./components/pages/WelcomePage'));
 
 // New Incubation pages
 const IncubationServicesPage = lazy(() => import('./components/pages/incubation/IncubationServicesPage'));
@@ -121,6 +122,7 @@ const ModuleRenderer: React.FC<ModuleRendererProps> = ({
     const allEvents = useMemo(() => leadershipData.units.flatMap(u => u.stages.flatMap(s => s.events)), [leadershipData.units]);
 
     switch (activeModule) {
+        case 'welcome': return <WelcomePage />;
         case 'dashboard': return <Dashboard setActiveModule={updateActiveModule} />;
         case 'donors': return <DonorManagement role={role}/>;
         case 'institutional_donors': return <InstitutionalDonors />;
@@ -238,7 +240,7 @@ const LoadingSpinner = () => (
 );
 
 function App() {
-    const [activeModule, setActiveModule] = useState(() => (window.location.hash.substring(1) || 'dashboard').split('/')[0]);
+    const [activeModule, setActiveModule] = useState(() => (window.location.hash.substring(1) || 'welcome').split('/')[0]);
     const [role, setRole] = useState<Role>('Admin');
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [enabledLanguages, setEnabledLanguages] = useState<Language[]>(['en', 'ar', 'tr']);
@@ -259,7 +261,7 @@ function App() {
     
     useEffect(() => {
         const handleHashChange = () => {
-            const hash = window.location.hash.substring(1) || 'dashboard';
+            const hash = window.location.hash.substring(1) || 'welcome';
             const [module, targetId, targetTab] = hash.split('/');
             
             setActiveModule(module);
