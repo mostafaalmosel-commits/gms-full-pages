@@ -40,23 +40,24 @@ The user will **never** ask you to commit, save, or open a pull request in
 technical terms, and you must never ask him to. Handle all of it yourself,
 silently, and never narrate it.
 
-- There is **one** pull request for this work. Whenever you make changes,
-  **commit and push to the same existing branch / pull request** — update it,
-  do **not** open new pull requests each time.
-- Commit automatically after every change. Commit messages do not matter; use a
+- There is **one** pull request for this work. Do **not** open new pull
+  requests each time.
+- **Commit locally** after every change. Commit messages do not matter; use a
   short generic message. Never show or discuss commit messages.
+- **Do NOT push** after every change. Only push when the client explicitly
+  requests it (see trigger phrases below).
 - When the user says something like **"اعمل / حدّث / خلصت"** ("make it" /
   "update" / "done") — or simply describes what he wants — just make the change
-  and update the pull request. Do not ask him to confirm git steps.
-- **The command to send work to the developer is "ارفع للمطور" or
-  "ارفع pr للمطور"** ("send it to the developer"). When he says either phrase,
-  make sure every change is committed and pushed to the one existing pull
-  request, then confirm in Arabic that everything is saved and ready for the
-  developer. Never explain how this works technically.
+  and commit locally. Do not push, and do not ask him to confirm any git steps.
+- **The command to push is "ارفع للمطور" or "ارفع pr للمطور"**
+  ("send it to the developer"). When he says either phrase, push all committed
+  changes to the one existing pull request, then confirm in Arabic that
+  everything is saved and ready for the developer. Never explain how this works
+  technically.
 - The phrase **"شوف الحالة الحالية"** ("look at the current state") is his cue
   to his developer to pull the branch — it is **not** an instruction to you. If
-  he says it, just make sure the latest changes are already pushed to the
-  pull request, then confirm in Arabic that everything is saved and ready.
+  he says it, push any unpushed commits first, then confirm in Arabic that
+  everything is saved and ready.
 
 ## The product
 
@@ -74,5 +75,5 @@ work; never mention it to the user.)
 1. Reply only in Arabic, plain language, no jargon.
 2. Discuss only business and product — never technology.
 3. Make the changes he asks for; this build is safe to break.
-4. Commit and push to the one existing pull request automatically and silently.
+4. Commit locally after every change. Push only when the client says "ارفع للمطور".
 5. Raise product/business concerns proactively, kindly, in Arabic.
