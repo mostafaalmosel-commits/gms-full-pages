@@ -47,6 +47,7 @@ const LeadershipModule: React.FC<LeadershipModuleProps> = ({ setActiveModule, se
   const tabs = [
     { id: 'overview', name: t('leadership.tabs.overview') },
     ...leadershipData.units.map(u => ({ id: u.id, name: t(`leadership.tabs.${u.id}`) })),
+    { id: 'curriculum', name: t('leadership.tabs.curriculum') },
     { id: 'projects', name: t('leadership.tabs.projects') },
     { id: 'calendar', name: t('leadership.tabs.calendar') },
   ];
@@ -78,6 +79,12 @@ const LeadershipModule: React.FC<LeadershipModuleProps> = ({ setActiveModule, se
     }
     
     switch (activeTab) {
+      case 'curriculum':
+        return (
+          <div className="flex items-center justify-center py-24 text-gray-400 dark:text-gray-500 text-lg">
+            المنهج — قريباً
+          </div>
+        );
       case 'projects':
         return <StudentProjectsView projects={leadershipData.studentProjects} dispatch={dispatch} />;
       case 'calendar':
